@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Flask Tutorial</title>
+</head>
+<body>
+	<div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="insert">Add Employee</a>
+            <div class="search-container">
+            	<form action="#" class="searchform">
+            		<input type="text" placeholder="Search.." name="search">
+			     	<button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
+			    </form>
+			</div>
+            
+    </div>
+	<h3>Welcome to flask tutorial</h3>
+	<table border="1">
+		<tr>
+			<th colspan="7">Employee Data</th>
+		</tr>
+		
+		<tr>
+			<th>Eid</th>
+			<th>Name</th>
+			<th>City</th>
+			<th>Address</th>
+			<th>Pin</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+		
+		{% for e in employees %}
+		
+		<tr>
+			<td>{{e.id}} </td>
+			<td><a href="{{url_for('update', eid=e.id)}}">{{e.name}}</a></td>
+			<td>{{e.city}} </td>
+			<td>{{e.addr}} </td>
+			<td>{{e.pin}} </td>
+			<td><a href="{{url_for('update', eid=e.id)}}"><button class="button button1">Update</button></a></td>
+			<td><a href="{{url_for('delete', eid=e.id)}}"><button class="button button2">Delete</button></a></td>
+		</tr>
+		{% endfor %}
+
+		
+	</table>
+
+</body>
+</html>

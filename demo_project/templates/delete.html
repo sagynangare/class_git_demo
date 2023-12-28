@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<title>Flask Tutorial</title>
+</head>
+<body>
+	<div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="insert">Add Employee</a>
+        
+    </div>
+	<h3>Deleting Employee Information</h3>
+	<form action="{{url_for('delete', eid=employee.id)}}" method="post">
+		<h3>Are you sure to delete an employee information<mark>{{employee.name}}</mark>?</h3>
+
+		<button type="submit" style="">Delete</button>
+		
+	</form>
+
+</body>
+</html>
